@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import AuthorForm from "./components/AuthorForm";
 
 ReactDOM.render(
-    <p>uwu</p>, document.getElementById('root')
+    <AuthorForm/>, document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
