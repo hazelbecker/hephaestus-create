@@ -1,6 +1,5 @@
 import React from 'react';
-import axios from "axios";
-import { Redirect } from 'react-router-dom'
+import axios from 'axios';
 
 class Forms extends React.Component {
     constructor(props) {
