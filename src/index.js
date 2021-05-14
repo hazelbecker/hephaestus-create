@@ -2,10 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Forms from "./components/Forms";
+import { Forms } from "./components/Forms";
+import Navigation from "./Navigation"
 
 ReactDOM.render(
-    <Forms/>, document.getElementById('root')
+    <React.StrictMode>
+        <Navigation/>
+        <br/>
+        <Forms/>
+    </React.StrictMode>, document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

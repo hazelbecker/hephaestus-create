@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { Redirect } from "react-router-dom";
 
-class Forms extends React.Component {
+export class Forms extends React.Component {
     constructor(props) {
         super(props);
         this.state = {author: '', title: '', body: '', label: '', postId: 0};
@@ -42,20 +45,32 @@ class Forms extends React.Component {
         //alert('Tags were submitted: ' + tagArray);
 
         event.preventDefault();
+
+        //return <Redirect to="https://hephaestus-frontpage.herokuapp.com/#home" />
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <p>Insert your post title, author, and body. Include tags -without punctuation, -separated by commas, -with no spaces after the commas.</p>
-                <input id="title" onChange={this.handleTitleChange} value={this.state.title} type="text" placeholder="title" />
-                <input id="author" onChange={this.handleAuthorChange} value={this.state.author} type="text" placeholder="name" />
-                <input id="body" onChange={this.handleBodyChange} value={this.state.body} type="text" placeholder="body" />
-                <input id="tags" onChange={this.handleTagsChange} value={this.state.label} type="text" placeholder="tags" />
-                <input value="submit" type="submit"/>
-            </form>
+            <p><mark>Insert your post title, author, and body. Include tags -without punctuation, -separated by commas, -with no spaces after the commas.</mark>
+                <br/>
+                <Form onSubmit={this.handleSubmit}>
+                    <Form.Group>
+                        <Form.Control type="title" placeholder="Title" onChange={this.handleTitleChange} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control type="author" placeholder="Author" onChange={this.handleAuthorChange} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control type="tags" placeholder="Tags" onChange={this.handleTagsChange} />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control type="body" placeholder="Body" onChange={this.handleBodyChange} />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
+            </p>
         );
     }
 }
-
-export default Forms;
